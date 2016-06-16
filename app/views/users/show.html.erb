@@ -1,4 +1,32 @@
 <h1>
   <%= gravatar_for @user %>
   <%= @user.name %>
+
 </h1>
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		名前
+	</div>
+	<div class="panel-body">
+		<%= @user.name %>
+	</div>
+</div>
+
+<div class="panel panel-success">
+	<div class="panel-heading">
+		住んでいる地域
+	</div>
+	<div class="panel-body">
+		<%= @user.region %>
+	</div>
+</div>
+
+<div class="panel panel-info">
+	<div class="panel-heading">
+	  ひとこと
+	</div>
+	<div class="panel-body">
+		<%= @user.profile%>
+	</div>
+</div>
