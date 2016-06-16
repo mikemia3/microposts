@@ -23,4 +23,6 @@ ActiveRecord::Schema.define(version: 20160615054943) do
     t.string   "profile"
   end
 
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+
 end
