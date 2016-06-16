@@ -1,0 +1,24 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.present? %>
+    <div class="alert alert-danger">
+      <%= alert %>
+      <ul>
+        <% @user.errors.full_messages.each do |full_message| %>
+          <li>
+            <%= full_message %>
+          </li>
+        <% end %> 
+      </ul>
+    </div>
+  <% end %>
+
+  プロフィール:
+  <%= f.text_field :name %>
+
+  メールアドレス:
+  <%= f.text_field :body %>
+  
+  地域：
+  <%= f.text_field :body %>
+  <%= f.submit class: "btn btn-sm btn-primary" %>
+<% end %>

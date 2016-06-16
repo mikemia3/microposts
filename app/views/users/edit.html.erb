@@ -1,0 +1,23 @@
+
+<h1>Update your profile</h1>
+<%= form_for(@user) do |f| %>
+  <%= f.label "名前（必須）" %>
+  <%= f.text_field :name, class: 'form-control' %>
+
+  <%= f.label "メールアドレス（必須）" %>
+  <%= f.email_field :email, class: 'form-control' %>
+  
+  <%= f.label "住んでいる地域" %>
+  <%= f.text_field :region, class: 'form-control' %>
+  
+  <%= f.label "ひとこと" %>
+  <%= f.text_field :profile, class: 'form-control' %>
+  
+  <%= f.label "パスワード" %>
+  <%= f.password_field :password, class: 'form-control' %>
+  
+  <%= f.label "パスワード（確認）" %>
+  <%= f.password_field :password_confirmation, class: 'form-control' %>
+  
+  <%= f.submit class: "btn btn-sm btn-primary" %>
+<% end %>
