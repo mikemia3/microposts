@@ -1,47 +1,54 @@
-<h1>
-    <%= gravatar_for @user %>
-    <%= @user.name %>
-</h1>
-<div class="panel panel-primary">
-	<div class="panel-heading">
-		名前
-	</div>
-	<div class="panel-body">
-		<%= @user.name %>
-	</div>
-</div>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
 
-<div class="panel panel-success">
-	<div class="panel-heading">
-		住んでいる地域
-	</div>
-	<div class="panel-body">
-		<%= @user.region %>
-	</div>
-</div>
-
-<div class="panel panel-info">
-	<div class="panel-heading">
-	  ひとこと
-	</div>
-	<div class="panel-body">
-		<%= @user.profile%>
-	</div>
-</div>
-
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-    
-    </section>
-  </aside>
-  <div class="col-md-8">
-    <%= render 'follow_form' if logged_in? %>
-    <% if @user.microposts.any? %>
-      <h3>つぶやき (<%= @user.microposts.count %>)</h3>
+    </aside>
+    <div class = "col-md-8">
+      <h3>プロフィール</h3>
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          名前
+     	  </div>
+        <div class="panel-body">
+          <%= @user.name %>
+        </div>
+      </div>
+      
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          住んでいる地域
+        </div>
+   	    <div class="panel-body">
+          <%= @user.region %>
+        </div>
+      </div>
+      
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          ひとこと
+        </div>
+        <div class="panel-body">
+          <%= @user.profile%>
+        </div>
+      </div>
+      
+      <% if @user.microposts.any? %>
+      <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
         <%= render @microposts %>
       </ol>
     <% end %>
+    </div>
+    <%= render 'follow_form'%>
   </div>
-</div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Welcome to the Microposts</h1>
+
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>
+

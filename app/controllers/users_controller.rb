@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.order(created_at: :desc)
+    @micropost = current_user.microposts.build if logged_in?
   end
   
   def new
@@ -22,6 +23,13 @@ class UsersController < ApplicationController
     @user= User.find(params[:id])
   end
   
+  def followed
+    @user= User.find(params[:id])
+  end
+  
+  def following
+    @user= User.find(params[:id])
+  end
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)

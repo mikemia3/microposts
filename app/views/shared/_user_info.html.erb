@@ -1,4 +1,8 @@
 <%= link_to gravatar_for(current_user, size: 50), current_user %>
-<h1><%= current_user.name %></h1>
-<span><%= link_to "view my profile", current_user %></span>
-<span><%= pluralize(current_user.microposts.count, "micropost") %></span>
+<h1><%= @user.name %></h1>
+<span><%= link_to "view profile", @user %></span>
+<span><%= pluralize(@user.microposts.count, "micropost") %></span>
+<ul class="nav nav-pills">
+    <li><%= link_to "フォロー(#{@user.following_users.count})", following_user_path(@user) %></li>
+    <li><%= link_to "フォロワー(#{@user.follower_users.count})", followed_user_path(@user) %></li>
+ </ul> 
